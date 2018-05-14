@@ -19,6 +19,12 @@ namespace ShowModDesignators
                     if (!def.description.NullOrEmpty())
                         def.description += $"\n({mcp.Name})";
 
+                    if(def is TraitDef trd)
+                    {
+                        foreach (TraitDegreeData trdd in trd.degreeDatas)
+                            trdd.description += $"\n({mcp.Name})";
+                    }
+
                     if (BackstoryDatabase.allBackstories.TryGetValue(key: def.defName, value: out Backstory bs))
                         bs.baseDesc += $"\n({mcp.Name})";
                 }
