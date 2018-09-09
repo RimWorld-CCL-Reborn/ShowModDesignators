@@ -33,8 +33,10 @@ namespace ShowModDesignators
                             case ThingDef td:
                                 if (td.race != null)
                                 {
-                                    td.race.meatDef.description += nameAdd;
-                                    td.race.corpseDef.description += nameAdd;
+                                    if(td.race.meatDef != null)
+                                        td.race.meatDef.description += nameAdd;
+                                    if(td.race.corpseDef != null)
+                                        td.race.corpseDef.description += nameAdd;
                                     if(td.race.leatherDef != null)
                                         td.race.leatherDef.description += nameAdd;
                                 }
@@ -54,7 +56,6 @@ namespace ShowModDesignators
                     catch (Exception)
                     {
                         Log.Error(text: $"ModDesignator: {def.defName} of {def.GetType()} is evil");
-                        throw;
                     }
                 }
         }
