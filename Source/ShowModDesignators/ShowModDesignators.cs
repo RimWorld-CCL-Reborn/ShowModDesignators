@@ -18,7 +18,7 @@ namespace ShowModDesignators
                 {
                     try
                     {
-                        string nameAdd = $"\n({mcp.Name})";
+                        string nameAdd = $"\n({mcp.Name})".Replace(oldChar: '[', newChar: '(').Replace(oldChar: ']', newChar: ')');
 
                         if (!def.description.NullOrEmpty())
                             def.description += nameAdd;
